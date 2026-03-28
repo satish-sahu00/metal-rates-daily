@@ -1,0 +1,29 @@
+name: Gold Price Alert
+
+on:
+  schedule:
+    - cron: '30 3 * * *'  # 9:00 AM IST
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          GOLD_API_KEY: ${{ secrets.GOLD_API_KEY }}
+        run: python gold_alert.py
