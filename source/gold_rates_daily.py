@@ -2,7 +2,7 @@ import requests
 import os
 
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-CHAT_ID: int = int(os.getenv("TELE_CHAT_ID"))
+CHAT_ID: str = os.getenv("TELE_CHAT_ID")
 GOLD_API_KEY: str = os.getenv("GOLD_API_KEY")
 GOLD_API_URL: str = "https://www.goldapi.io/api/XAU/INR"
 TELE_BOT_MSG_URL: str = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
