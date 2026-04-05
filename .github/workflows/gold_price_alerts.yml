@@ -25,6 +25,6 @@ jobs:
       - name: Run script
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.TELE_CHAT_ID }}
+          TELE_CHAT_ID: ${{ secrets.TELE_CHAT_ID }}
           GOLD_API_KEY: ${{ secrets.GOLD_API_KEY }}
         run: python source/gold_rates_daily.py
